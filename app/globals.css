@@ -7,3 +7,15 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.bg-primary {
+	@apply bg-indigo-400;
+}
+
+.bg-secondary {
+	@apply bg-indigo-600;
+}
+
+.btn-header {
+	@apply border-2 border-cyan-500 rounded-lg py-1 px-4
+}
