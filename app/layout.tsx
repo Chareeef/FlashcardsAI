@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "AI Flashcards",
@@ -16,9 +17,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-primary">
+        <body className="flex flex-col min-h-dvh bg-primary">
           <Header />
-          {children}
+          <main className="grow p-4">{children}</main>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

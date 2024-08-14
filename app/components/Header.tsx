@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="w-full p-4 bg-secondary text-white text-center flex flex-col md:flex-row items-center justify-between gap-y-4">
+    <header className="w-full p-4 bg-secondary border-b-2 border-indigo-800 text-white text-center flex flex-col md:flex-row items-center justify-between gap-y-4">
       <Link href="/" className="flex flex-col text-lg">
         <h1 className="font-bold">AI Flashcards</h1>
         <p className="italic">Generate your flashcards in a snap!</p>
