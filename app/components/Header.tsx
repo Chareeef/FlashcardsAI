@@ -1,11 +1,4 @@
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Header() {
@@ -17,19 +10,19 @@ export default function Header() {
       </Link>
       <div className="flex items-center justify-between gap-x-4">
         <SignedOut>
-          <SignInButton>
-            <button className="btn-header">Sign In</button>
-          </SignInButton>
-          <SignUpButton>
-            <button className="btn-header">Sign Up</button>
-          </SignUpButton>
+          <Link href="/sign-in" className="btn-header">
+            Sign In
+          </Link>
+          <Link href="/sign-up" className="btn-header">
+            Sign Up
+          </Link>
         </SignedOut>
 
         <SignedIn>
           <UserButton />
-          <SignOutButton>
-            <button className="btn-header">Sign Out</button>
-          </SignOutButton>
+          <Link href="/home" className="btn-header">
+            Home
+          </Link>
         </SignedIn>
       </div>
     </header>

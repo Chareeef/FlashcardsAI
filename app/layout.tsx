@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body className="flex flex-col min-h-dvh bg-primary">
           <Header />
-          <main className="grow p-4">{children}</main>
+          <main className="grow flex flex-col gap-y-4 p-4">{children}</main>
           <Footer />
         </body>
       </html>
