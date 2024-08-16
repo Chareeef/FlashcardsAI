@@ -42,7 +42,7 @@ function Modal({
       const data = await response.json();
       console.log({ data });
       console.log("data.flashcards:", data.flashcards);
-      setCards(data.flashcards);
+      setCards(data.properties.flashcards.items);
       setIsModalOpen(false);
     } catch (error) {
       setError("Something went wrong. Try again!");
@@ -124,14 +124,15 @@ export default function GenerateCards() {
         <>
           {" "}
           <ul className="w-full grid grid-cols-3 md:grid-cols-4 gap-2">
-            {/* handle overflow */}
             {cards.map((card, index) => (
               <li
                 key={index}
-                className={`flex flex-col justify-center items-center p-2 bg-slate-200 h-[10rem] overflow-y-auto ${flippedCards[index] && "rotateCard"} transition ease-in-out duration-300`}
+                className={`flex flex-col justify-center items-center bg-slate-200 h-[10rem] ${flippedCards[index] && "rotateCard"} transition ease-in-out duration-300`}
                 onClick={() => handleClickCard(index)}
               >
-                {flippedCards[index] ? card.back : card.front}
+                <div className="w-full max-h-full break-words p-2 overflow-y-auto">
+                  {flippedCards[index] ? card.back : card.front}
+                </div>{" "}
               </li>
             ))}
           </ul>
