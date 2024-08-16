@@ -23,7 +23,7 @@ export default async function Home() {
 
       {/* Card sets */}
       <div className="flex flex-col items-center justify-around p-4 bg-tertiary text-center text-black">
-        <Link href="/generate_cards" className="btn-cta mb-4">
+        <Link href="/generate_flashcards" className="btn-cta mb-4">
           Generate New Flashcards
         </Link>
 

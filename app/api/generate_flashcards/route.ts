@@ -7,7 +7,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 // The POST function to handle incoming requests
 export async function POST(req: NextRequest) {
   // Extracting the subject from the request body
-  const { subject, numberOfCards } = await req.json();
+  const { subject, numberOfFlashcards } = await req.json();
 
   // If no subject is provided, return a 400 Bad Request error
   if (!subject) {
@@ -17,10 +17,10 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // If numberOfCards is null, return a 400 Bad Request error
-  if (!numberOfCards) {
+  // If numberOfFlashcards is null, return a 400 Bad Request error
+  if (!numberOfFlashcards) {
     return new NextResponse(
-      JSON.stringify({ error: "numberOfCards not provided" }),
+      JSON.stringify({ error: "numberOfFlashcards not provided" }),
       { status: 400 },
     );
   }
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         items: { $ref: "#/$defs/Flashcard" }, // Each item in the flashcards array must follow the Flashcard schema
         title: "Flashcards", // Name of the flashcards array
         type: "array", // The flashcards field is an array
-        length: numberOfCards, // The array is expected to have 10 items
+        length: numberOfFlashcards, // The array is expected to have 10 items
       },
     },
     required: ["flashcards"], // The flashcards field is required in the schema

@@ -5,22 +5,22 @@ import { getFlashcardsSet } from "../firestoreUtils";
  * Handles POST requests to retrieve a specific flashcards set by subject for a user.
  *
  * This route expects a JSON payload containing:
- * - `email`: The email of the user.
+ * - `userId`: The userId of the user.
  * - `subject`: The subject (ID) of the flashcards set.
  *
  * The function fetches the specified flashcards set from Firestore for the given user.
  * If the flashcards set is found, it is returned in the response.
- * If the email or subject is missing, or if the flashcards set is not found or an error occurs,
+ * If the userId or subject is missing, or if the flashcards set is not found or an error occurs,
  * an appropriate error response is returned.
  */
 export async function POST(req: NextRequest) {
-  const { email, subject } = await req.json();
+  const { userId, subject } = await req.json();
 
-  // Validate the email and subject parameters
-  if (!email || !subject) {
+  // Validate the userId and subject parameters
+  if (!userId || !subject) {
     return new NextResponse(
       JSON.stringify({
-        error: "Please specify both email and subject",
+        error: "Please specify both userId and subject",
       }),
       { status: 400 },
     );
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
   try {
     // Retrieve the specific flashcards set from Firestore
-    const flashcardsSet = await getFlashcardsSet(email, subject);
+    const flashcardsSet = await getFlashcardsSet(userId, subject);
     if (flashcardsSet) {
       return new NextResponse(JSON.stringify({ flashcardsSet }), {
         status: 200,

@@ -1,15 +1,15 @@
 import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "./firestore";
-import { Card } from "@/types";
+import { Flashcard } from "@/types";
 
 // Function to save a flashcards set
 export async function saveFlashcardsSet(
-  email: string,
+  userId: string,
   subject: string,
-  flashcardsSet: Card[],
+  flashcardsSet: Flashcard[],
 ): Promise<void> {
   try {
-    await setDoc(doc(db, "users", email, "flashcards", subject), {
+    await setDoc(doc(db, "users", userId, "flashcards", subject), {
       flashcardsSet,
     });
   } catch (error) {
@@ -19,12 +19,12 @@ export async function saveFlashcardsSet(
 }
 
 // Function to get all flashcards sets IDs (subjects) for a user
-export async function getFlashcardsSetsIds(email: string): Promise<string[]> {
+export async function getFlashcardsSetsIds(userId: string): Promise<string[]> {
   try {
     const flashcardsCollectionRef = collection(
       db,
       "users",
-      email,
+      userId,
       "flashcards",
     );
     const snapshot = await getDocs(flashcardsCollectionRef);
@@ -39,11 +39,11 @@ export async function getFlashcardsSetsIds(email: string): Promise<string[]> {
 
 // Function to get a specific flashcards set by subject for a user
 export async function getFlashcardsSet(
-  email: string,
+  userId: string,
   subject: string,
-): Promise<Card[] | null> {
+): Promise<Flashcard[] | null> {
   try {
-    const flashcardsDocRef = doc(db, "users", email, "flashcards", subject);
+    const flashcardsDocRef = doc(db, "users", userId, "flashcards", subject);
     const docSnap = await getDoc(flashcardsDocRef);
 
     if (docSnap.exists()) {

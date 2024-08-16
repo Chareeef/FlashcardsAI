@@ -5,22 +5,22 @@ import { saveFlashcardsSet } from "../firestoreUtils";
  * Handles POST requests to save a flashcards set for a user.
  *
  * This route expects a JSON payload containing:
- * - `email`: The email of the user.
+ * - `userId`: The userId of the user.
  * - `subject`: The subject (ID) of the flashcards set.
- * - `flashcardsSet`: An array of flashcards (of type `Card`) to be saved.
+ * - `flashcards`: An array of flashcards (of type `Card`) to be saved.
  *
  * If the provided data is valid, the flashcards set is saved to Firestore
  * under the user's document. If any required data is missing, or if an error
  * occurs during the save operation, an appropriate error response is returned.
  */
 export async function POST(req: NextRequest) {
-  const { email, subject, flashcardsSet } = await req.json();
+  const { userId, subject, flashcards } = await req.json();
 
   // Validate the input data
-  if (!email || !subject || !Array.isArray(flashcardsSet)) {
+  if (!userId || !subject || !Array.isArray(flashcards)) {
     return new NextResponse(
       JSON.stringify({
-        error: "Please specify email, subject and flashcardsSet",
+        error: "Please specify userId, subject and flashcards",
       }),
       { status: 400 },
     );
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
   try {
     // Save the flashcards set to Firestore
-    await saveFlashcardsSet(email, subject, flashcardsSet);
+    await saveFlashcardsSet(userId, subject, flashcards);
   } catch (error) {
     // Handle any errors that occur during the save operation
     return new NextResponse(
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
   // Return a success response
   return new NextResponse(
     JSON.stringify({
-      success: `Flashcards set "${subject}" successfully created for ${email}!`,
+      success: `Flashcards set "${subject}" successfully created for ${userId}!`,
     }),
     { status: 201 },
   );
