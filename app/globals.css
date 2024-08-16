@@ -31,3 +31,7 @@
 .btn-close {
 	@apply w-fit bg-red-600 border-2 border-amber-600 rounded-lg py-1 px-4 text-white hover:scale-125 transition ease-out duration-300
 }
+
+.rotateCard {
+	transform: rotateY(1turn);
+}
