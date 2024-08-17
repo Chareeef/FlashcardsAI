@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "AI Flashcards",
@@ -33,6 +34,7 @@ export default function RootLayout({
           <Header />
           <main className="grow flex flex-col gap-y-4 p-4">{children}</main>
           <Footer />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
