@@ -136,15 +136,14 @@ export default function Home() {
       <ErrorAlert error={error} openError={openError} />
       {/* Profile infos */}
       <div className="flex flex-col items-center justify-around p-4 bg-tertiary text-center text-black">
-        {user?.hasImage && (
-          <Image
-            src={user?.imageUrl}
-            alt="Profile picture"
-            width={150}
-            height={150}
-            className="rounded-full border-4 border-amber-600 mb-4"
-          />
-        )}
+        <Image
+          src={user?.imageUrl}
+          alt="Profile picture"
+          width={150}
+          height={150}
+          className="rounded-full border-4 border-amber-600 mb-4"
+        />
+
         <h2 className="font-bold">{user?.fullName}</h2>
       </div>
 
