@@ -21,10 +21,10 @@ function FlashcardsModal({
 }) {
   return (
     <div
-      className={`${isOpenFlashcardsModal ? "fixed" : "hidden"} w-[100dvw] h-[100dvh] flex flex-col items-center justify-center top-0 left-0 p-4 bg-black/40`}
+      className={`${isOpenFlashcardsModal ? "fixed" : "hidden"} w-[100dvw] h-[100dvh] flex items-center top-0 left-0 p-4 bg-black/40`}
     >
-      <div className="h-[95dvh] overflow-y-auto">
-        <div className="relative flex flex-col items-center justify-evenly p-4 gap-y-4 bg-white">
+      <div className="max-h-[95dvh] w-full border-2 border-white overflow-y-auto">
+        <div className="relative w-full flex flex-col items-center justify-evenly p-4 gap-y-4 bg-white">
           <button
             onClick={() => setIsOpenFlashcardsModal(false)}
             className="absolute top-4 right-4 bg-red-600 w-4 h-4 flex flex-col items-center justify-center rounded-full p-4 text-white font-bold"

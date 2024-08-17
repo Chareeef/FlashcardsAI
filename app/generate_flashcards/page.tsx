@@ -66,7 +66,7 @@ function Modal({
 
   return (
     <div
-      className={`${isModalOpen ? "fixed" : "hidden"} w-[100dvw] h-[100dvh] top-0 bg-black/40 overflow-y-auto`}
+      className={`${isModalOpen ? "fixed" : "hidden"} w-[100dvw] h-[100dvh] top-0 bg-black/40 flex items-center justify-center overflow-y-auto`}
     >
       <div className="flex flex-col p-4 items-center justify-evenly gap-y-4">
         <ErrorAlert error={error} openError={openError} />
