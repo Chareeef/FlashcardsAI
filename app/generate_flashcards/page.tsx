@@ -5,16 +5,7 @@ import Flashcards from "../components/Flashcards";
 import { useUser } from "@clerk/nextjs";
 import ErrorAlert from "../components/Error";
 import { useRouter } from "next/navigation";
-
-const showError = (
-  error: string,
-  setError: Dispatch<SetStateAction<string>>,
-  setOpenError: Dispatch<SetStateAction<boolean>>,
-) => {
-  setError(error);
-  setOpenError(true);
-  setTimeout(() => setOpenError(false), 3000);
-};
+import { showError } from "../utils";
 
 function Modal({
   isModalOpen,
@@ -41,11 +32,14 @@ function Modal({
       showError("Please specify a Subject.", setError, setOpenError);
       return;
     } else if (!numberOfFlashcards) {
-      setError("Please specify a Number of Flashcards.");
-      setOpenError(true);
-      setTimeout(() => setOpenError(false), 3000);
+      showError(
+        "Please specify a Number of Flashcards.",
+        setError,
+        setOpenError,
+      );
       return;
     }
+
     try {
       const response = await fetch("/api/generate_flashcards", {
         method: "POST",
@@ -159,6 +153,7 @@ export default function GenerateFlashcards() {
       <ErrorAlert error={error} openError={openError} />
       {flashcards.length > 0 ? (
         <>
+          <h1 className="font-bold text-xl">{subject}</h1>
           <Flashcards flashcards={flashcards} />
 
           <div className="flex items-center gap-x-4">

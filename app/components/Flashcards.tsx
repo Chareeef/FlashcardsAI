@@ -23,7 +23,7 @@ export default function Flashcards({
       {flashcards.map((flashcard, index) => (
         <li
           key={index}
-          className={`flex flex-col justify-center items-center bg-slate-200 h-[10rem] ${flippedFlashcards[index] && "rotateFlashcard"} transition ease-in-out duration-300`}
+          className={`flex justify-center items-center text-center h-[10rem] ${flippedFlashcards[index] ? "rotateFlashcard bg-secondary text-white" : "bg-slate-200 text-black"} transition ease-in-out duration-300`}
           onClick={() => handleClickFlashcard(index)}
         >
           <div className="w-full max-h-full break-words p-2 overflow-y-auto">

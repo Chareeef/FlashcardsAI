@@ -7,7 +7,7 @@ export default function ErrorAlert({
 }) {
   return (
     <div
-      className={`${!openError && "opacity-0"} bg-red-600 w-fit rounded shadow-lg p-2 text-white text-center transition-opacity duration-300`}
+      className={`${!openError && "opacity-0"} bg-red-600 w-fit rounded shadow-lg p-2 self-center text-white text-center transition-opacity duration-300`}
     >
       {error}
     </div>
