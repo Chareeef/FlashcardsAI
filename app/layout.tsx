@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "MemFlip",
-  description: "Generate all your flashcards effortlessly",
+  description: "Generate your flashcards in a snap!",
 };
 
 export default function RootLayout({

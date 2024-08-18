@@ -28,6 +28,10 @@
 	@apply w-fit bg-indigo-800 border-2 border-cyan-600 rounded-lg py-1 px-4 text-white hover:scale-125 transition ease-out duration-300
 }
 
+.btn-save {
+	@apply w-full md:w-fit bg-teal-800 border-2 border-cyan-600 rounded-lg py-1 px-4 text-white hover:scale-125 transition ease-out duration-300
+}
+
 .btn-close {
 	@apply w-fit bg-red-600 border-2 border-amber-600 rounded-lg py-1 px-4 text-white hover:scale-125 transition ease-out duration-300
 }

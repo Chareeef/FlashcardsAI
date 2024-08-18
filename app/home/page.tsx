@@ -31,7 +31,9 @@ function FlashcardsModal({
           >
             X
           </button>
-          <h2 className="font-bold text-xl">{subject}</h2>
+          <h2 className="max-w-[70%] font-bold text-xl text-center">
+            {subject}
+          </h2>
           <Flashcards flashcards={flashcards} />
         </div>
       </div>

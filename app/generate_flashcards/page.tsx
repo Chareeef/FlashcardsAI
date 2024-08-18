@@ -156,12 +156,18 @@ export default function GenerateFlashcards() {
           <h1 className="font-bold text-xl">{subject}</h1>
           <Flashcards flashcards={flashcards} />
 
-          <div className="flex items-center gap-x-4">
-            <button className="btn-cta" onClick={() => setIsModalOpen(true)}>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <button
+              className="btn-cta w-full md:w-fit"
+              onClick={() => setIsModalOpen(true)}
+            >
               Generate Other Flashcards
             </button>
 
-            <button className="btn-cta" onClick={handleSaveFlashcards}>
+            <button
+              className="btn-save w-full md:w-fit"
+              onClick={handleSaveFlashcards}
+            >
               Save Flashcards
             </button>
           </div>
