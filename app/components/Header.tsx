@@ -17,7 +17,7 @@ export default function Header() {
           className="h-[3rem] w-[3rem] rounded-xl shadow-inner"
         />
         <div className="text-center md:text-left">
-          <h1 className="font-bold">AI Flashcards</h1>
+          <h1 className="font-bold">MemFlip</h1>
           <p className="italic">Generate your flashcards in a snap!</p>
         </div>
       </Link>

@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-  title: "AI Flashcards",
+  title: "MemFlip",
   description: "Generate all your flashcards effortlessly",
 };
 

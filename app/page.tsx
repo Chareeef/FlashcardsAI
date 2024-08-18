@@ -44,7 +44,7 @@ export default function LandingPage() {
         />
 
         <h1 className="text-2xl font-bold" data-aos="fade-right">
-          AI Flashcards
+          MemFlip
         </h1>
       </div>
 
@@ -66,7 +66,7 @@ export default function LandingPage() {
               alt={feature.text}
               height={571}
               width={960}
-              data-aos="zoom-out-right"
+              data-aos={`zoom-out-${index % 2 === 0 ? "left" : "right"}`}
               className={`border-x-2 ${index === features.length - 1 && "border-b-2"} md:border-y-2 md:border-l-2 md:border-r border-indigo-500 h-full`}
             />
           </li>
