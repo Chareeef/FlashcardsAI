@@ -39,46 +39,36 @@ export default function LandingPage() {
           alt="App Logo"
           height={510}
           width={510}
-          className="h-[3rem] w-[3rem] rounded-xl shadow-inner"
+          className="h-[5rem] w-[5rem] rounded-xl shadow-inner"
           data-aos="fade-left"
         />
 
-        <h1 className="text-lg font-bold" data-aos="fade-right">
+        <h1 className="text-2xl font-bold" data-aos="fade-right">
           AI Flashcards
         </h1>
       </div>
 
       <ul className="flex flex-col gap-0 w-full" data-aos="zoom-out-up">
         {features.map((feature, index) => (
-          <li className="w-full grid grid-cols-2 gap-0" key={index}>
-            {index % 2 !== 0 && (
-              <Image
-                src={feature.imageURL}
-                alt={feature.text}
-                height={571}
-                width={960}
-                data-aos="zoom-out-right"
-                className="border-y-2 border-l-2 border-r border-indigo-500"
-              />
-            )}
-
+          <li
+            className="w-full flex flex-col md:grid md:grid-cols-2 gap-0"
+            key={index}
+          >
             <div
-              className={`${index % 2 === 0 ? "border-l-2" : "border-r-2"} border-y-2 border-indigo-500 shadow-inner bg-gradient-to-r from-indigo-300 to-violet-300 p-2 flex items-center justify-center`}
+              className={`${index % 2 === 0 ? "border-l-2" : "md:border-r-2 md:order-2"} border-y-2 border-x-2 md:border-y-2 border-indigo-500 shadow-inner bg-gradient-to-r from-indigo-300 to-violet-300 p-2 flex items-center justify-center h-[10em] md:h-auto`}
               data-aos="zoom-in"
             >
               {feature.text}
             </div>
 
-            {index % 2 === 0 && (
-              <Image
-                src={feature.imageURL}
-                alt={feature.text}
-                height={571}
-                width={960}
-                className="border-y-2 border-r-2 border-l border-indigo-500"
-                data-aos="zoom-out-left"
-              />
-            )}
+            <Image
+              src={feature.imageURL}
+              alt={feature.text}
+              height={571}
+              width={960}
+              data-aos="zoom-out-right"
+              className={`border-x-2 ${index === features.length - 1 && "border-b-2"} md:border-y-2 md:border-l-2 md:border-r border-indigo-500 h-full`}
+            />
           </li>
         ))}
       </ul>

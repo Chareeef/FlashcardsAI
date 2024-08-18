@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Flashcard } from "@/types";
 
 export default function Flashcards({
@@ -18,8 +18,10 @@ export default function Flashcards({
     }));
   }
 
+  useEffect(() => setFlippedFlashcards({}), [flashcards]);
+
   return (
-    <ul className="w-full grid grid-cols-3 md:grid-cols-4 gap-2">
+    <ul className="w-full grid grid-cols-2 md:grid-cols-4 gap-2">
       {flashcards.map((flashcard, index) => (
         <li
           key={index}

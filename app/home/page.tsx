@@ -47,12 +47,12 @@ function FlashcardsSubjects({
   openFlashcardsSet: (subject: string) => Promise<void>;
 }) {
   return (
-    <ul className="grid grid-cols-3 md:grid-cols-4 gap-4 w-full">
+    <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
       {flashcardsSubjects.map((subject, index) => (
         <li
           key={index}
           onClick={() => openFlashcardsSet(subject)}
-          className="relative h-[10rem] shadow-inner border border-slate-400 rounded-r-lg bg-slate-200"
+          className="relative h-[5rem] md:h-[10rem] shadow-inner border border-slate-400 rounded-r-lg bg-slate-200"
         >
           <div className="absolute h-full w-full bg-slate-200 top-1 left-1 border border-slate-400 rounded-r-lg">
             <div className="flex justify-center items-center absolute h-full w-full bg-slate-200 top-1 left-1 border border-slate-400 rounded-r-lg break-words">
